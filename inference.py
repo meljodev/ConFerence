@@ -1,12 +1,15 @@
 import numpy as np
 from sklearn.preprocessing import MultiLabelBinarizer
+import os 
 
 from config import config
 from classifier_module import QTagClassifier
 from core import mlb
 
 def inference(input_text, tokenizer, checkpoint, threshold):
-    model_path = "lightning_logs/version_2/checkpoints/QTag-epoch=02-val_loss=0.81.ckpt"
+    
+    # print(">>>>>>>>> ", str(checkpoint.best_model_path), type(checkpoint.best_model_path), checkpoint.best_model_path)
+    model_path = checkpoint.best_model_path
     intents = predict_intent(input_text, tokenizer, model_path, threshold)
     if not intents[0]:
         print('This conversation can not be associated with any known intent - Please review to see if a new intent is required ')

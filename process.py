@@ -2,7 +2,9 @@ import json, os
 import pandas as pd
 
 def get_dataset(): 
-    path_to_json_files = 'gpt_result/'
+    current_path = os.getcwd()
+    path_to_json_files = os.path.join(current_path, 'gpt_result/') 
+    
     json_file_names = [filename for filename in os.listdir(path_to_json_files) if filename.endswith('.json')]
 
     combined_batch_jsons = []

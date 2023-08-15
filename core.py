@@ -27,6 +27,7 @@ torch.manual_seed(config.RANDOM_SEED)
 # data = data.replace('Customer:', ' ', regex=True)
 # data = data.replace('Operator:', ' ', regex=True)
 data = get_dataset()
+
 mlb = MultiLabelBinarizer()
 yt = mlb.fit_transform(data['gpt_intents'])
 class_nums = len(mlb.classes_)

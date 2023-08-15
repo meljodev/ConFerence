@@ -6,7 +6,7 @@ class Config:
     
     # Model hyperparameters
     RANDOM_SEED: int = 42
-    N_EPOCHS: int = 4
+    N_EPOCHS: int = 1
     BATCH_SIZE: int = 4
     MAX_LEN: int = 300
     LEARNING_RATE: int = 2e-05
